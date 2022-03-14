@@ -1,0 +1,158 @@
+.centralizar {
+  text-align: center;
+}
+
+.linha {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.logo {
+  width: 50% !important;
+  height: 70%;
+}
+
+.logo-footer {
+  margin-left: 50px;
+  width: 45%;
+}
+
+.fonte-nav-bar {
+  font-size: 24px;
+  letter-spacing: -1px;
+  line-height: 18px;
+  color: #09bacd !important;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.border-color {
+  border-color: #09bacd !important;
+}
+
+.icon-color {
+  color: #08b9cd !important;
+}
+
+.background-color {
+  background-color: #08b9cd;
+}
+
+.font {
+  font-size: 18px;
+  letter-spacing: -1px;
+  line-height: 18px;
+  color: #08b9cd;
+  font-weight: 700;
+  font-family: "Montserrat";
+}
+
+.font-title {
+  font-size: 60px;
+  letter-spacing: -3px;
+  line-height: 76px;
+  color: #08b9cd;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.font-subtitle {
+  font-size: 33px;
+  letter-spacing: -2px;
+  line-height: 77px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.padding-top-title {
+  padding-top: 100px;
+}
+
+.padding-bottom-title {
+  padding-bottom: 80px;
+}
+
+.card-img {
+  width: 120px;
+  height: 120px;
+  background-color: #ffffff;
+}
+
+.label {
+  font-size: 60px;
+  letter-spacing: -3px;
+  line-height: 83px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.footer {
+  margin-top: 100px;
+  background-image: linear-gradient(204deg, #33f29d 0%, #09bacd 100%);
+}
+
+.font-footer {
+  font-size: 20px;
+  letter-spacing: -1px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.icon-footer {
+  color: #ffffff;
+}
+
+.title-card {
+  font-size: 28px;
+  letter-spacing: -1px;
+  color: #09bacd;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.content-card {
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 27px;
+  color: #a6a6a6;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+
+.style-input {
+  width: 500px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: rgba(8,185,205,0);
+  border: 2px solid #08b9cd;
+  margin-bottom: 10px;
+  padding-left: 12px;
+}
+
+.buttom-arquivo {
+  width: 500px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #08b9cd;
+  border: 2px solid #08b9cd;
+  margin-bottom: 10px;
+  color: white;
+  cursor: pointer;
+  padding-top: 15px;
+}
+
+.buttom-submit {
+  width: 500px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: rgba(8,185,205,0);
+  border: 2px solid #08b9cd;
+  color: #08b9cd;
+}
+
+textarea:focus, input:focus, button:focus {
+  outline: none;
+}
