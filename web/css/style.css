@@ -26,6 +26,11 @@
   font-family: "Montserrat";
 }
 
+.nav-bar {
+  box-shadow: 0;  
+  background-color: #fff;  
+}
+
 .border-color {
   border-color: #09bacd !important;
 }
@@ -155,4 +160,14 @@
 
 textarea:focus, input:focus, button:focus {
   outline: none;
+}
+
+.font-size-14 {
+  font-size: 14px !important;
+}
+
+.size-5 {
+  width: 220px;
+  height: 40px;
+  text-align: center !important;
 }

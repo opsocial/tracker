@@ -1,0 +1,52 @@
+    <mat-dialog-content [formGroup]="form">
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>credit_card</mat-icon>
+                Cartão de credito
+          </ng-template>
+      <mat-grid-list cols="2" rowHeight="45px">
+            <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                    <input matInput type="text" placeholder="nome" formControlName="name">
+                </mat-form-field>
+            </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <mat-form-field appearance="outline">
+            <i class="scheme">{{ccNumber.resolvedScheme$ | async}} </i> <!--aqui vai ficar a bandeira do cartão por enquanto esta aparencedo o nome quando digita-->
+            <input matInput type="tel" id="cc-number" #ccNumber="ccNumber" autocomplete="cc-number" ccNumber placeholder="Numero do cartão" formControlName="cardNumber">
+
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="2">
+        <mat-form-field appearence="outline">
+            <input matInput type="tel" id="cc-exp-date" autocomplete="cc-exp" ccExp placeholder="Data expiração" formControlName="expdate">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+        <mat-form-field appearence="outline">
+            <input matInput id="cc-cvc" type="tel" autocomplete="off" ccCVC placeholder="CVC" formControlName="cvc">
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon>view_day</mat-icon>
+                Boleto bancario
+            </ng-template>
+        </mat-tab>
+
+        <mat-tab label="Pix">
+            <ng-template mat-tab-label>
+                <mat-icon>center_focus_weak</mat-icon>
+                Pix
+            </ng-template>
+        </mat-tab>
+        </mat-tab-group>
+    </mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button class="mat-raised-button" (click)="close()">Close</button>
+    <button mat-button class="mat-raised-button mat-primary" >Save</button>
+</mat-dialog-actions>
