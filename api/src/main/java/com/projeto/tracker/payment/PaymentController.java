@@ -1,20 +1,26 @@
 package com.projeto.tracker.payment;
 
+import com.google.gson.Gson;
+import com.projeto.tracker.model.Payment;
+import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
+import com.stripe.model.checkout.Session;
 import com.stripe.param.CustomerCreateParams;
+import com.stripe.param.checkout.SessionCreateParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/api")
 public class PaymentController {
 
     private StripeClient stripeClient;
@@ -30,6 +36,41 @@ public class PaymentController {
         Double amount = Double.parseDouble(request.getHeader("amount"));
         return this.stripeClient.chargeCreditCard(token, amount);
     }
+
+
+    //criar o objeto Gson
+    private static Gson gson = new Gson();
+
+    //criando uma intenção de pagamento
+    @PostMapping("/payment")
+    /**
+     * Pagamento com stripe
+     *
+     * @throws StripeException
+     */
+    public String paymentWithCheckoutPage(@RequestBody Payment payment) throws StripeException {
+        //iniciondo objeto stripe com a chave da api
+        SessionCreateParams params = SessionCreateParams.builder()
+                //tipo do pagamento
+                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
+                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.BOLETO)
+                .setMode(SessionCreateParams.Mode.PAYMENT).setSuccessUrl(payment.getSuccess_url())
+                .setCancelUrl(payment.getCancelUrl())
+                .addLineItem(SessionCreateParams.LineItem.builder().setQuantity(payment.getQuantity())
+                        .setPriceData(
+                                SessionCreateParams.LineItem.PriceData.builder()
+                        .setCurrency(payment.getCurrency()).setUnitAmount(payment.getLongAmount())
+                        .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
+                                .setName(payment.getName()).build()).build()).build()).build();
+
+        //criando sessao do stripe
+        Session session = Session.create(params);
+        Map<String, String> responseData = new HashMap<>();
+
+        responseData.put("id", session.getId());
+        return gson.toJson(responseData);
+    }
+
 
     @PostMapping("/testCharge")
     public void testCharge(@RequestBody Integer amount) {

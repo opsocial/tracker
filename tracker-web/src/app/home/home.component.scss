@@ -1,0 +1,133 @@
+$font-family: "Montserrat";
+$margin-text-cards: "47px";
+
+$font-size-mobile: 35px;
+$min-wdt: 375px;
+$max-wdt: 768px;
+
+
+
+/* Fontes para telas de celular */
+@media(min-width: $min-wdt) and (max-width: $max-wdt) {
+  .form {
+    overflow: hidden;
+  }
+  .font-title, .font-subtitle {
+    font-size: $font-size-mobile !important;
+    line-height: 46px !important;
+  }
+
+  #icon-top {
+    margin-bottom: 40px !important;
+  }
+
+  .padding-como-funciona {
+    padding: 30px 0 32px 0 !important;
+  }
+  .padding-top-title-submeta-proj {
+    padding-top: 33px !important;
+  }
+}
+
+main {
+  margin-bottom: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.font-title {
+  font-size: 60px;
+  letter-spacing: -3px;
+  line-height: 76px;
+  color: #08b9cd;
+  font-weight: 300;
+  font-family: $font-family;
+}
+
+.font-subtitle {
+  font-size: 33px;
+  letter-spacing: -2px;
+  line-height: 77px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: $font-family;
+}
+
+.font-light {
+  font-size: 24px;
+  font-weight: lighter;
+  font-family: $font-family;
+}
+
+.font-bold {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: $font-family;
+}
+
+#icon-top {
+  margin-bottom: 95px;
+}
+
+.padding-top-title-qm-somos {
+  padding-top: 83px;
+}
+
+.padding-top-title-submeta-proj {
+  padding-top: 83px;
+}
+
+.padding-como-funciona {
+  padding: 90px 0 102px 0;
+}
+
+
+.card-img-empreendedor {
+  width: 149px;
+  height: 109px;
+  margin-top: 10px;
+}
+
+.card-img-dsv-projeto {
+  width: 128px;
+  height: 128px;
+}
+
+.card-img-cnx-marcado {
+  width: 125px;
+  height: 125px;
+}
+
+.card-img-cmn-empreendedora, .card-img-frm-servicos {
+  width: 139px;
+  height: 140px;
+}
+
+.card-img-grana-acontecer {
+  width: 131px;
+  height: 131px;
+}
+
+#metodologia {
+  width:100%;
+}
+
+.title-card {
+  font-size: 28px;
+  letter-spacing: -1px;
+  color: #09bacd;
+  font-weight: 300;
+  font-family: $font-family;
+  margin-bottom: 30px; margin-top: 18px;
+}
+
+.content-card {
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 20px;
+  color: #a6a6a6;
+  font-weight: 200;
+  font-family: $font-family;
+  margin-bottom: $margin-text-cards;
+}
+

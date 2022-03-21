@@ -6,4 +6,22 @@ mat-tab {
   background-color: #08b9cd;
 }
 
+mat-grid-list {
+  margin-top: 20px;
+}
 
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+}

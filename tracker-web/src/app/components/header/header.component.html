@@ -1,40 +1,61 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container">
 
       <a href="#">
-        <img class="logo" class="img-fluid" src="../../../assets/img/tracker-aceleradora.png">
+        <img class="logo" src="../../../assets/img/tracker-aceleradora.png">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
         aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Links -->
-      <div class="collapse navbar-collapse">
-
+      <div class="collapse navbar-collapse" id="collapseNav">
         <!-- Left -->
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link fonte-nav-bar" href="comoFunciona"
-              >como funciona?</a>
+            <a class="nav-link font-light mt-3" href="#comoFunciona"
+              ><h3>como funciona?</h3></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fonte-nav-bar" href="quemSomos"
-              target="_blank">quem somos</a>
+            <a class="nav-link font-light mt-3" href="#quemSomos"
+            ><h3>quem somos</h3></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fonte-nav-bar" href="#"
-              target="_blank">contato</a>
+            <a class="nav-link font-light mt-3" href="#"
+              ><h3>contato</h3></a>
           </li>
         </ul>
-        
+
         <!-- Right -->
-        <ul class="navbar-nav nav-flex-icons">
+        <ul class="navbar-nav nav-flex-icons" id="client-area">
+          <li class="nav-item dropdown">
+            <a class="nav-link font-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+             data-toggle="dropdown" aria-expanded="false">
+              Área do cliente
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li>
+                <div class="col-12">
+                  <input class="style-input-client" type="text" placeholder="usuario">
+                </div>
+              </li>
+              <li>
+                <div class="col-12">
+                  <input class="style-input-client" type="text" placeholder="Senha">
+                </div>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <button mat-raised-button class="buttom-client">Cadastrar</button>
+                <button mat-raised-button class="buttom-client">Entrar</button>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a href="#" class="nav-link border rounded fonte-nav-bar border-color font size-5">
-              <span class="center">subimeta seu projeto</span>
+            <a href="#submetaSeuProjeto" class="nav-link center border rounded border-color">
+              <span class="font-bold">submeta seu projeto</span>
             </a>
           </li>
           <li class="nav-item">
@@ -54,5 +75,4 @@
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
+    </nav>

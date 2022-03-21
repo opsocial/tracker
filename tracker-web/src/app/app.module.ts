@@ -11,6 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './components/material-module/material.module';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { CancelPaymentComponent } from './components/cancel-payment/cancel-payment.component';
+import { SucessPaymentComponent } from './components/sucess-payment/sucess-payment.component';
+import { CheckoutPaymentComponent } from './components/checkout-payment/checkout-payment.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,10 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    PaymentModalComponent
+    PaymentModalComponent,
+    CancelPaymentComponent,
+    SucessPaymentComponent,
+    CheckoutPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,8 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule, // modulo dos componenetes do angular material
-    CreditCardDirectivesModule
+    CreditCardDirectivesModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,36 @@
+$main-color: #09bacd !important;
+$font-family: "Montserrat";
+$font-size-mobile: 14px;
+$min-wdt: '375px';
+$max-wdt: '768px';
+
+@media(min-width: $min-wdt) and (max-width: $max-wdt) {
+  .logo-footer {
+    margin-left: 10px !important;
+    width: 80% !important;
+  }
+}
+
+.footer {
+  height: 200px;
+  background-image: linear-gradient(204deg, #33f29d 0%, #09bacd 100%);
+  margin-top: 90px;
+}
+
+.font-footer {
+  font-size: 20px;
+  letter-spacing: -1px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Montserrat";
+}
+
+.logo-footer {
+  margin-left: 50px;
+  width: 30%;
+}
+
+
+.icon-footer {
+  color: #ffffff;
+}

@@ -1,12 +1,11 @@
 package com.projeto.tracker.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.projeto.tracker.model.Projeto;
 import com.projeto.tracker.repository.ProjetoRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/projeto")
@@ -22,5 +21,7 @@ public class ProjetoController {
 	public Projeto save(@RequestBody Projeto projeto) {
 		return this.projetoRepository.save(projeto);
 	}
-	
+
+	@GetMapping("/listar")
+	public List<Projeto> listAll() {return this.projetoRepository.findAll();}
 }

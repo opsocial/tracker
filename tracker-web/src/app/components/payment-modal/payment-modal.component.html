@@ -1,52 +1,57 @@
-    <mat-dialog-content [formGroup]="form">
-      <mat-tab-group>
+    <mat-dialog-content [formGroup]="formLogin">
+      <mat-tab-group mat-align-tabs="center">
         <mat-tab>
           <ng-template mat-tab-label>
-            <mat-icon>credit_card</mat-icon>
-                Cartão de credito
+            <mat-icon>trending_flat</mat-icon>
+                Login
           </ng-template>
       <mat-grid-list cols="2" rowHeight="45px">
             <mat-grid-tile colspan="2" rowspan="2">
                 <mat-form-field appearance="outline">
-                    <input matInput type="text" placeholder="nome" formControlName="name">
+                    <input matInput type="text" placeholder="email" formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
             </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="2">
-        <mat-form-field appearance="outline">
-            <i class="scheme">{{ccNumber.resolvedScheme$ | async}} </i> <!--aqui vai ficar a bandeira do cartão por enquanto esta aparencedo o nome quando digita-->
-            <input matInput type="tel" id="cc-number" #ccNumber="ccNumber" autocomplete="cc-number" ccNumber placeholder="Numero do cartão" formControlName="cardNumber">
-
-        </mat-form-field>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="2" rowspan="2">
-        <mat-form-field appearence="outline">
-            <input matInput type="tel" id="cc-exp-date" autocomplete="cc-exp" ccExp placeholder="Data expiração" formControlName="expdate">
-        </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="2">
-        <mat-form-field appearence="outline">
-            <input matInput id="cc-cvc" type="tel" autocomplete="off" ccCVC placeholder="CVC" formControlName="cvc">
-        </mat-form-field>
-    </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                  <input matInput type="text" placeholder="senha" formControlName="password">
+                  <mat-icon matSuffix>lock_open</mat-icon>
+                </mat-form-field>
+            </mat-grid-tile>
 </mat-grid-list>
         </mat-tab>
         <mat-tab>
             <ng-template mat-tab-label>
-                <mat-icon>view_day</mat-icon>
-                Boleto bancario
+                <mat-icon>trending_flat</mat-icon>
+                Registrar
             </ng-template>
-        </mat-tab>
+            <mat-grid-list cols="2" rowHeight="45px">
+              <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                  <input matInput type="text" placeholder="nome" formControlName="name">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                  <input matInput type="text" placeholder="email" formControlName="email">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                  <input matInput type="text" placeholder="cpf" formControlName="CPF">
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile colspan="2" rowspan="2">
+                <mat-form-field appearance="outline">
+                  <input matInput type="text" placeholder="senha" formControlName="password">
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
 
-        <mat-tab label="Pix">
-            <ng-template mat-tab-label>
-                <mat-icon>center_focus_weak</mat-icon>
-                Pix
-            </ng-template>
         </mat-tab>
         </mat-tab-group>
     </mat-dialog-content>
 <mat-dialog-actions align="center">
-    <button mat-button class="mat-raised-button" (click)="close()">Close</button>
-    <button mat-button class="mat-raised-button mat-primary" >Save</button>
+    <button mat-button (click)="close()">Close</button>
+    <button mat-button class="mat-primary" (click)="pay()">Login</button>
 </mat-dialog-actions>
