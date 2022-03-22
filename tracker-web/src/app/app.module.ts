@@ -15,6 +15,7 @@ import { CancelPaymentComponent } from './components/cancel-payment/cancel-payme
 import { SucessPaymentComponent } from './components/sucess-payment/sucess-payment.component';
 import { CheckoutPaymentComponent } from './components/checkout-payment/checkout-payment.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectRegisterComponent } from './components/project-register/project-register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentModalComponent,
     CancelPaymentComponent,
     SucessPaymentComponent,
-    CheckoutPaymentComponent
+    CheckoutPaymentComponent,
+    ProjectRegisterComponent
   ],
   imports: [
     BrowserModule,
