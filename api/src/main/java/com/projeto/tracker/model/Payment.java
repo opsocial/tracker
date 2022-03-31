@@ -1,20 +1,68 @@
 package com.projeto.tracker.model;
 
-import com.projeto.tracker.PaymentTypes;
-import com.projeto.tracker.payment.Currencys;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity(name = "pagamento")
 public class Payment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long idPagamento;
+
     private String name;
+
     private String currency;
     private String success_url;
     private String cancelUrl;
     private BigDecimal unitAmount;
     private Long longAmount;
     private Long quantity;
-    private PaymentTypes paymentType;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    private User usuario;
+
+    public Payment() {
+    }
+
+    public Payment(Long idPagamento, String name, String currency, String success_url, String cancelUrl, BigDecimal unitAmount, Long longAmount, Long quantity, User usuario) {
+        this.idPagamento = idPagamento;
+        this.name = name;
+        this.currency = currency;
+        this.success_url = success_url;
+        this.cancelUrl = cancelUrl;
+        this.unitAmount = unitAmount;
+        this.longAmount = longAmount;
+        this.quantity = quantity;
+        this.usuario = usuario;
+    }
+
+    public Long getIdPagamento() {
+        return idPagamento;
+    }
+
+    public void setIdPagamento(Long idPagamento) {
+        this.idPagamento = idPagamento;
+    }
+
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
 
     public String getName() {
         return name;

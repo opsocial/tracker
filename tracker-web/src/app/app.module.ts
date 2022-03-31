@@ -16,6 +16,10 @@ import { SucessPaymentComponent } from './components/sucess-payment/sucess-payme
 import { CheckoutPaymentComponent } from './components/checkout-payment/checkout-payment.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectRegisterComponent } from './components/project-register/project-register.component';
+import { CpfPipe } from './pipes/cpf.pipe';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxStripeModule } from 'ngx-stripe';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { ProjectRegisterComponent } from './components/project-register/project-
     CancelPaymentComponent,
     SucessPaymentComponent,
     CheckoutPaymentComponent,
-    ProjectRegisterComponent
+    ProjectRegisterComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,8 @@ import { ProjectRegisterComponent } from './components/project-register/project-
     MaterialModule, // modulo dos componenetes do angular material
     CreditCardDirectivesModule,
     HttpClientModule,
+    NgxMaskModule.forRoot(),
+    NgxStripeModule.forRoot(environment.stripe)
   ],
   providers: [],
   bootstrap: [AppComponent]

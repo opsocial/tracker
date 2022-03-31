@@ -15,64 +15,60 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1311884942466303825L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idUsuario;
 
     @Column(name = "nome", nullable = false)
-    public String name;
-
-    @Column(name = "senha", nullable = false)
-    public String senha;
+    public String nome;
 
     @Column(name = "CPF", nullable = false)
     public String cpf;
 
-    @Column(name = "ativo", nullable = false)
+    @Column(name = "dataNasc")
+    public String dataNascimento;
+
+    @Column(name = "telefone", nullable = false)
+    public String telefone;
+
+    @Column(name = "email")
+    public String email;
+
+    @Column(name = "linkedin", nullable = false)
+    public String linkedin;
+
+    @Column(name = "ativo")
     public Boolean ativo;
 
-    @ElementCollection
-    public List<Card> cartoes = new ArrayList<Card>();
 
-    public User(Long id, String name, String senha, String cpf, Boolean ativo, List<Card> cartoes) {
-        this.id = id;
-        this.name = name;
-        this.senha = senha;
+    public User() {
+
+    }
+
+    public User(Long id_usuario, String name, String cpf, String dataNascimento, String telefone, String email, String linkedin, Boolean ativo) {
+        this.idUsuario = id_usuario;
+        this.nome = name;
         this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.telefone = telefone;
+        this.email = email;
+        this.linkedin = linkedin;
         this.ativo = ativo;
-        this.cartoes = cartoes;
     }
 
-    public User() {}
 
-    public Long getId() {
-        return id;
+    public Long getId_usuario() {
+        return idUsuario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_usuario(Long id_usuario) {
+        this.idUsuario = id_usuario;
     }
 
     public String getName() {
-        return name;
+        return nome;
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Card> getCartoes() {
-        return cartoes;
-    }
-
-    public void setCartoes(List<Card> cartoes) {
-        this.cartoes = cartoes;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+        this.nome = name;
     }
 
     public String getCpf() {
@@ -83,24 +79,43 @@ public class User implements Serializable {
         this.cpf = cpf;
     }
 
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLinkedin() {
+        return linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
+
     public Boolean getAtivo() {
         return ativo;
     }
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

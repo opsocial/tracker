@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 $main-color: #09bacd !important;
+$margin-text-cards: "47px";
 $font-family: "Montserrat";
-$font-size-mobile: 14px;
+$font-size-mobile: 18px;
 $min-wdt: '375px';
 $max-wdt: '768px';
 
@@ -32,10 +33,10 @@ html {
   }
 }
 
-
   .centralizar {
     text-align: center;
     margin: 0 auto;
+    align-items: center;
   }
 
   .linha {
@@ -112,18 +113,6 @@ html {
     padding-left: 12px;
   }
 
-  .buttom-arquivo {
-    width: 500px;
-    height: 60px;
-    border-radius: 10px;
-    background-color: #08b9cd;
-    border: 2px solid #08b9cd;
-    margin-bottom: 10px;
-    color: white;
-    cursor: pointer;
-    padding-top: 15px;
-  }
-
   .buttom-submit {
     width: 500px;
     height: 60px;
@@ -131,6 +120,26 @@ html {
     background-color: rgba(8,185,205,0);
     border: 2px solid #08b9cd;
     color: #08b9cd;
+  }
+
+  //fontes style
+  .font-title {
+    font-size: 60px;
+    letter-spacing: -3px;
+    line-height: 76px;
+    color: #08b9cd;
+    font-weight: 300;
+    font-family: $font-family;
+  }
+
+  .content-card {
+    font-size: 18px;
+    letter-spacing: -1px;
+    line-height: 25px;
+    color: #a6a6a6;
+    font-weight: 300;
+    font-family: $font-family;
+    margin-bottom: $margin-text-cards;
   }
 
   textarea:focus, input:focus, button:focus {

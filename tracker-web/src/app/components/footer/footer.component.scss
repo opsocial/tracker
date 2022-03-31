@@ -6,8 +6,8 @@ $max-wdt: '768px';
 
 @media(min-width: $min-wdt) and (max-width: $max-wdt) {
   .logo-footer {
-    margin-left: 10px !important;
-    width: 80% !important;
+    margin-left: 5px !important;
+    width: 180% !important;
   }
 }
 
@@ -27,10 +27,13 @@ $max-wdt: '768px';
 
 .logo-footer {
   margin-left: 50px;
-  width: 30%;
+  width: 70%;
 }
 
 
 .icon-footer {
   color: #ffffff;
+}
+#linha-float-right {
+  float: right;
 }

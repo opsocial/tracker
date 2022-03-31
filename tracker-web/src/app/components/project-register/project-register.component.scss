@@ -1,8 +1,31 @@
 button { float: right}
 
+//cor do icone do stepper
 ::ng-deep .mat-step-header .mat-step-icon-selected {
   background-color: #09bacd;
 }
+
+//background do icone do stepper
+::ng-deep .mat-step-header .mat-step-icon-content {
+  background-image: url('../../../assets/img/Ellipse\ 1.png');
+  height: 54px;
+  width: 54px;
+  align-items: center;
+}
+
+::ng-deep .mat-step-header .ng-star-inserted {
+  width:32px;
+  height: 36px;
+  margin: 0 auto;
+}
+
+//cor do label do step
+::ng-deep .mat-step-header .mat-step-text-label {
+  color: #08B9CD;
+  width: 100% !important;
+  margin: 15px 0 0 20px;
+}
+
 
 mat-grid-list {
   width: 100%;
@@ -24,4 +47,15 @@ button {
   background: #08b9cd;
   color: white;
   margin: 10px;
+}
+
+
+::ng-deep .ng-pristine .ng-valid, .ng-pristine .ng-valid .ng-touched,
+::ng-deep .ng-untouched .ng-valid .ng-dirty {
+  display: none;
+}
+
+#input-invisivel {
+  display: none;
+
 }

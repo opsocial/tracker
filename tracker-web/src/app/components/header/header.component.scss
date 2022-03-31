@@ -8,8 +8,14 @@ $max-wdt: '745px';
   .fab {
     display: none;
   }
-}
 
+  .logo {
+    margin-left: 0 !important;
+  }
+}
+input {
+  margin: 10px;
+}
 .center {
   margin: 0 auto !important;
   text-align: center !important;
@@ -20,14 +26,15 @@ $max-wdt: '745px';
 .logo {
   width: 50% !important;
   height: 70%;
+  margin-left: 50px;
 }
 
 $font-family: "Montserrat";
 $font-color: #09bacd !important;
 
 .font-light {
-  font-size: 24px;
-  font-weight: lighter;
+  font-size: 18px;
+  font-weight: 400;
   font-family: $font-family;
   color: $font-color;
   letter-spacing: -1px;
@@ -58,23 +65,53 @@ $font-color: #09bacd !important;
   width: 90px;
   height: 40px;
   border-radius: 10px;
-  background-color: rgba(8,185,205,0);
-  border: 2px solid #08b9cd;
   color: #08b9cd;
-  margin: 10px;
   align-items: center;
+  box-shadow: none;
+  margin: 6px !important;
 }
+
+.padding-left-button-client {
+  padding-left: 15px;
+}
+
 .style-input-client {
   width: 250px;
   height: 50px;
   border-radius: 10px;
   background-color: rgba(8,185,205,0);
   border: 2px solid #08b9cd;
-  margin-bottom: 10px;
-  padding-left: 12px;
+  margin: 6px !important;
+  padding: 8px !important;
+  align-items: flex-start;
 }
 
 #client-area {
   margin: 0 10px 0 0 !important;
 }
 
+.nav-item:hover {
+  background-color: #F0FFFF;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $font-color;
+  opacity: 1; /* Firefox */
+  text-align: left;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $font-color;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $font-color;
+}
+
+#icon-margin-right {
+  margin-right: 50px;
+}
+
+#padding-rigth-0 {
+  padding-right: 0;
+}

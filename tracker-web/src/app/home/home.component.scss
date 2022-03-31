@@ -15,6 +15,8 @@ $max-wdt: 768px;
   .font-title, .font-subtitle {
     font-size: $font-size-mobile !important;
     line-height: 46px !important;
+    font-family: $font-family;
+
   }
 
   #icon-top {
@@ -27,21 +29,23 @@ $max-wdt: 768px;
   .padding-top-title-submeta-proj {
     padding-top: 33px !important;
   }
+
+  .buttom-arquivo {
+    width: 200px !important;
+  }
+
+  .float-left {
+    float: none !important;
+  }
+  .float-right {
+    float: none !important;
+  }
 }
 
 main {
   margin-bottom: 25px;
   width: 100%;
   overflow: hidden;
-}
-
-.font-title {
-  font-size: 60px;
-  letter-spacing: -3px;
-  line-height: 76px;
-  color: #08b9cd;
-  font-weight: 300;
-  font-family: $font-family;
 }
 
 .font-subtitle {
@@ -81,6 +85,13 @@ main {
   padding: 90px 0 102px 0;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
 
 .card-img-empreendedor {
   width: 149px;
@@ -119,15 +130,188 @@ main {
   font-weight: 300;
   font-family: $font-family;
   margin-bottom: 30px; margin-top: 18px;
+  line-height: 0.9;
 }
 
-.content-card {
-  font-size: 20px;
-  letter-spacing: -1px;
-  line-height: 20px;
-  color: #a6a6a6;
-  font-weight: 200;
+.customer-logos {
+  max-height: 300px;
+}
+
+.buttom-arquivo {
+  width: 400px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #08b9cd;
+  border: 2px solid #08b9cd;
+  margin-bottom: 10px;
+  color: white;
+  cursor: pointer;
+  padding-top: 15px;
+}
+
+#comoFunciona {
+  margin: 20px;
+}
+
+
+//Slicker config
+/* Slider */
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slider
+{
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+      touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus
+{
+  outline: none;
+}
+.slick-list.dragging
+{
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+  -webkit-transform: translate3d(0, 0, 0);
+     -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+       -o-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+  display: table;
+  content: '';
+}
+.slick-track:after
+{
+  clear: both;
+}
+.slick-loading .slick-track
+{
+  visibility: hidden;
+}
+
+.slick-slide
+{
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+  float: right;
+}
+.slick-slide img
+{
+  display: block;
+}
+.slick-slide.slick-loading img
+{
+  display: none;
+}
+.slick-slide.dragging img
+{
+  pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+  display: block;
+}
+.slick-loading .slick-slide
+{
+  visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+.img-slide-subway {
+  margin-top: 19px;
+  width: 199px;
+  height: 49px;
+}
+
+.img-slide-tim {
+  margin-top: 10px;
+  width: 120px;
+  height: 67px;
+}
+
+.img-slide-piraque {
+  width: 192px;
+  height:92px;
+}
+
+.img-slide-original {
+  width:196px;
+  height: 73px;
+}
+
+.img-slide-banco-central {
+  width: 144px;
+  height: 81px;
+}
+
+.card-contato {
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+button {
+  background: #08b9cd;
+  color: white;
+  margin: 10px;
+}
+
+.text-card-contato {
+  font-size: 32px;
+  letter-spacing: -2px;
+  line-height: 58px;
+  color: #08b9cd;
+  font-weight: 300;
   font-family: $font-family;
-  margin-bottom: $margin-text-cards;
 }
-

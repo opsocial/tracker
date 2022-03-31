@@ -3,18 +3,14 @@
   <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
 
     <ng-template matStepperIcon="market">
-      <mat-icon>trending_up</mat-icon>
+      <img src="../../../assets/img/user.png">
     </ng-template>
     <ng-template matStepperIcon="capital">
-      <mat-icon>attach_money</mat-icon>
-    </ng-template>
-
-    <ng-template matStepperIcon="tech">
-      <mat-icon>desktop_mac</mat-icon>
+      <img src="../../../assets/img/start-up.png">
     </ng-template>
 
     <ng-template matStepperIcon="pag">
-      <mat-icon>monetization_on</mat-icon>
+     <img src="../../../assets/img/coin.png">
     </ng-template>
 
     <ng-template matStepperIcon="last">
@@ -23,24 +19,42 @@
 
     <mat-step [stepControl]="form1" state="market">
       <form [formGroup]="form1">
-        <ng-template matStepLabel>Mercado</ng-template>
+        <ng-template matStepLabel class="centralizar">Dados pessoais</ng-template>
         <!--<mat-form-field appearance="fill">
           <mat-label>Em que consiste o produto e/ou serviço que será desenvolvido pela empresa?</mat-label>
           <textarea matInput class="style-input" formControlName="dados"></textarea>
         </mat-form-field> -->
         <mat-grid-list cols="2" >
-          <textarea type="textarea" id="dado" class="style-input" placeholder="Em que consiste o produto e/ou serviço que será desenvolvido pela empresa?" formControlName="dados"></textarea>
+         <!-- <textarea type="textarea" id="dado" class="style-input" placeholder="Em que consiste o produto e/ou serviço que será desenvolvido pela empresa?" formControlName="dados"></textarea>-->
+         <mat-form-field appearance="fill" class="w-100">
+           <input type="text" matInput id="dado" placeholder="Nome" formControlName="nome">
+          </mat-form-field>
         </mat-grid-list>
         <mat-grid-list cols="1">
-          <textarea type="textarea" class="style-input" id="pot" placeholder="Quem são os seus potenciais clientes e/ou usuários? Que necessidades do cliente e/ou usuário a empresa irá satisfazer?" formControlName="potencial"></textarea>
+         <mat-form-field appearance="fill" class="w-100">
+           <input type="text" matInput id="" mask="000.000.000-00" placeholder="CPF" formControlName="cpf">
+          </mat-form-field>
         </mat-grid-list>
          <!-- <mat-form-field appearance="fill">
             <mat-label>Quem são os seus potenciais clientes e/ou usuários? Que necessidades do cliente e/ou usuário a empresa irá satisfazer?</mat-label>
             <textarea matInput class="style-input" formControlName="potecial"></textarea>
           </mat-form-field>-->
           <mat-grid-list cols="1">
-            <textarea type="textarea" id="conc" placeholder="Quem são os seus principais concorrentes?" class="style-input" formControlName="concorrentes"></textarea>
+            <mat-form-field appearance="fill" class="w-100">
+              <input type="text" matInput mask="(00) 00000-0000" placeholder="Telefone/whatsapp" formControlName="telefone">
+            </mat-form-field>
           </mat-grid-list>
+          <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input type="text" matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
+          </mat-grid-list>
+          <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input type="text" matInput placeholder="LinkedIn" formControlName="linkedin">
+            </mat-form-field>
+          </mat-grid-list>
+
           <!--
           <mat-form-field appearance="fill">
             <mat-label>Quem são os seus principais concorrentes?</mat-label>
@@ -48,73 +62,89 @@
           </mat-form-field>-->
 
       </form>
-      <button mat-raised-button matStepperNext>Proximo</button>
+      <!--<button mat-raised-button matStepperNext>Avançar</button>-->
     </mat-step>
     <mat-step [stepControl]="form2" state="capital">
       <form [formGroup]="form2">
-        <ng-template matStepLabel>Capital</ng-template>
-      <!--  <mat-form-field appearance="fill">
-          <mat-label>Quais os recursos financeiros que o(s) sócio(s) tem para investir?</mat-label>
-          <textarea matInput class="style-input" formControlName="recursos"></textarea>
-        </mat-form-field>-->
-        <!--<mat-form-field appearance="fill">
-          <mat-label>Quanto desse investimento são recursos próprios e quanto são recursos de terceiros?</mat-label>
-          <textarea matInput class="style-input" formControlName="recursos_proprios"></textarea>
-        </mat-form-field> -->
-        <!--
-        <mat-form-field appearance="fill">
-          <mat-label>Qual o preço de venda dos produtos/serviços de seus possíveis concorrentes?</mat-label>
-          <textarea matInput class="style-input" formControlName="preco_produtos"></textarea>
-        </mat-form-field>-->
+        <ng-template matStepLabel class="centralizar">Informações sobre o projeto</ng-template>
+        <mat-grid-list cols="1">
+          <mat-form-field appearance="fill" class="w-100">
+            <input type="text" matInput placeholder="Nome do projeto" formControlName="nome">
+          </mat-form-field>
+        </mat-grid-list>
+        <mat-grid-list cols="1">
+          <mat-form-field appearance="fill" class="w-100">
+            <input type="text" matInput placeholder="Área de atuação (fintech, agrotech, healthtech etc..)" formControlName="segmento">
+          </mat-form-field>
+        </mat-grid-list>
+        <mat-grid-list cols="1">
+          <mat-form-field appearance="fill" class="w-100">
+            <input type="text" matInput placeholder="Informações do projeto" formControlName="descricao">
+          </mat-form-field>
+        </mat-grid-list>
+        <mat-grid-list cols="1">
+          <div *ngIf="currentFile" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+            role="progressbar" attr.aria.valuenow="{{progress}}"
+            aria.valuemin="0" aria.valuemax="100"
+            [ngStyle]="{width: progress + '%'}">
+            {{progress}}%
+          </div>
+          </div>
+          <div class="col-6 img-upload pt-2">
+            <label class="buttom-arquivo">
+              <img src="../../../assets/img/upload-na-nuvem.png">
+              carregar apresentação / deck em PDF
 
-        <mat-grid-list cols="1">
-          <textarea type="textarea" matInput placeholder="Quais os recursos financeiros que o(s) sócio(s) tem para investir?"
-          class="style-input" formControlName="recursos"></textarea>
+              <input type="file" id="input-invisivel" (change)="selectFiles($event)" formControlName="deckNomeDoArquivo">
+            </label>
+          </div>
+          <div class="card">
+            <div class="card-header">Lista de arquivos</div>
+            <ul
+              class="list-group list-group-flush"
+              *ngFor="let file of fileInfos | async"
+            >
+              <li class="list-group-item">
+                <a href="{{ file.url }}">{{ file.name }}</a>
+              </li>
+            </ul>
+          </div>
         </mat-grid-list>
-        <mat-grid-list cols="1">
-          <textarea type="textarea" matInput placeholder="Quanto desse investimento são recursos próprios e quanto são recursos de terceiros?"
-          class="style-input" formControlName="recursos_proprios"></textarea>
-        </mat-grid-list>
-        <mat-grid-list cols="1">
-          <textarea type="textarea" matInput placeholder="Qual o preço de venda dos produtos/serviços de seus possíveis concorrentes?"
-          class="style-input" formControlName="preco_produtos"></textarea>
-        </mat-grid-list>
-
       </form>
-      <button mat-raised-button matStepperNext >Proximo</button>
-      <button mat-raised-button matStepperPrevious>Voltar</button>
+     <!--  <button mat-raised-button matStepperNext >Avançar</button>
+      <button mat-raised-button matStepperPrevious>Voltar</button>-->
     </mat-step>
-    <mat-step [stepControl]="form3" state="tech">
+
+    <mat-step [stepControl]="form3" state="pag">
       <form [formGroup]="form3">
-        <ng-template matStepLabel>Tecnologia</ng-template>
-        <!--
-        <mat-form-field appearance="fill">
-          <mat-label>Quais as tecnologias dominadas pela empresa e quais as que são necessárias serem desenvolvidas?</mat-label>
-          <textarea matInput class="style-input" formControlName="tecnologias"></textarea>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Quais as suas principais fontes de capacitação e acesso à tecnologia?</mat-label>
-          <textarea matInput class="style-input" formControlName="dif_tecnologicos"></textarea>
-        </mat-form-field>-->
-        <mat-grid-list cols="1">
-          <textarea type="textarea" matInput placeholder="Quais as tecnologias dominadas pela empresa e quais as que são necessárias serem desenvolvidas?"
-          class="style-input" formControlName="tecnologias"></textarea>
-        </mat-grid-list>
-        <mat-grid-list cols="1">
-          <textarea type="textarea" matInput placeholder="Quais as suas principais fontes de capacitação e acesso à tecnologia?"
-          class="style-input" formControlName="dif_tecnologicos"></textarea>
-        </mat-grid-list>
+        <ng-template matStepLabel class="centralizar">Pagamento da inscrição - R$99.00</ng-template>
+         <!-- <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input matInput type="nome" placeholder="seu nome" formControlName="nome">
+            </mat-form-field>
+          </mat-grid-list>
 
-      </form>
-      <button mat-raised-button matStepperNext>Fim</button>
-      <button mat-raised-button matStepperPrevious>Voltar</button>
-    </mat-step>
-    <mat-step state="pag">
-      <ng-template matStepLabel>Pagamento</ng-template>
-      <mat-grid-list cols="1">
-        <p>Tudo certo, ir para a tela de pagamento</p>
-      </mat-grid-list>
-      <button mat-raised-button (click)="pay()">Abrir modo de pagamento</button>
+          <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input matInput  placeholder="Numero do cartão" formControlName="number">
+            </mat-form-field>
+          </mat-grid-list>
+
+          <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input matInput  placeholder="CVC do cartão" formControlName="cvc">
+            </mat-form-field>
+          </mat-grid-list>
+
+          <mat-grid-list cols="1">
+            <mat-form-field appearance="fill" class="w-100">
+              <input matInput  placeholder="Data validade" formControlName="data">
+            </mat-form-field>
+          </mat-grid-list>-->
+
+          <button mat-raised-button (click)="inscrever()" class="w-100">Pagar</button>
+          </form>
     </mat-step>
   </mat-stepper>
 

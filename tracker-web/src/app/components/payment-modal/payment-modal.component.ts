@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { loadStripe } from '@stripe/stripe-js';
-import { CreditCardValidators } from 'angular-cc-library';
 import * as creditCardType from 'credit-card-type';
 import { environment } from 'src/environments/environment';
 
@@ -18,10 +17,15 @@ export class PaymentModalComponent implements OnInit {
 
   formLogin: any;
   formRegister: any;
-  description: string = '';
-
+  description1: string = '';
+  @Input() amount;
+  @Input() description;
+  confirmation: any;
+  loading = false;
   //carregando o stripe
   stripePromise = loadStripe(environment.stripe);
+
+
 
   constructor(public dialogRef: MatDialogRef<PaymentModalComponent>,
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -29,22 +33,13 @@ export class PaymentModalComponent implements OnInit {
     private http: HttpClient,
     private snackbar: MatSnackBar) {
       if(data) {
-        this.description = data.description;
+        this.description1 = data.description;
       }
     }
 
+
   ngOnInit(): void {
-    this.changeCreditCardIcon();
-    this.formLogin = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-    });
-    this.formRegister = new FormGroup({
-      nome: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
-    })
+
   }
 
   changeCreditCardIcon() {

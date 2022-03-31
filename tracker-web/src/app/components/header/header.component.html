@@ -1,78 +1,142 @@
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
-
-      <a href="#">
-        <img class="logo" src="../../../assets/img/tracker-aceleradora.png">
-      </a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
-        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Links -->
+  <mat-drawer-container class="example-container"></mat-drawer-container>
+    <!-- <mat-drawer #drawer >
       <div class="collapse navbar-collapse" id="collapseNav">
-        <!-- Left -->
+
         <ul class="navbar navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link font-light mt-3" href="#comoFunciona"
-              ><h3>como funciona?</h3></a>
+              ><p>como funciona?</p></a>
           </li>
           <li class="nav-item">
             <a class="nav-link font-light mt-3" href="#quemSomos"
-            ><h3>quem somos</h3></a>
+            ><p>quem somos</p></a>
           </li>
           <li class="nav-item">
             <a class="nav-link font-light mt-3" href="#"
-              ><h3>contato</h3></a>
+              ><p>contato</p></a>
           </li>
         </ul>
 
-        <!-- Right -->
+
         <ul class="navbar-nav nav-flex-icons" id="client-area">
           <li class="nav-item dropdown">
             <a class="nav-link font-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-             data-toggle="dropdown" aria-expanded="false">
+             data-toggle="dropdown" aria-expanded="true">
               Área do cliente
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li>
                 <div class="col-12">
-                  <input class="style-input-client" type="text" placeholder="usuario">
+                  <input class="border rounded border-color style-input-client" type="text" placeholder="login">
                 </div>
               </li>
               <li>
                 <div class="col-12">
-                  <input class="style-input-client" type="text" placeholder="Senha">
+                  <input class="style-input-client border rounded border-color" type="text" placeholder="senha">
                 </div>
+                <span *ngIf="loginIncorreto == true" style="color: red; margin-left: 20px; font-size: 12px">Usuario ou senha incorretos</span>
               </li>
               <li><hr class="dropdown-divider"></li>
-              <li>
-                <button mat-raised-button class="buttom-client">Cadastrar</button>
-                <button mat-raised-button class="buttom-client">Entrar</button>
+              <li class="padding-left-button-client">
+                <button mat-raised-button class="buttom-client center border rounded border-color" (click)="entrar()"><p>Entrar</p></button>
               </li>
             </ul>
           </li>
+        </ul>
+        <ul class="navbar navbar-nav" id="padding-rigth-0">
           <li class="nav-item">
             <a href="#submetaSeuProjeto" class="nav-link center border rounded border-color">
               <span class="font-bold">submeta seu projeto</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link waves-effect icon-color">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link waves-effect icon-color">
+            <a href="https://www.facebook.com/trackeraceleradora/" target="_blank"class="nav-link waves-effect icon-color">
               <i class="fab fa-facebook-f"></i>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="icon-margin-right">
             <a href="#" class="nav-link waves-effect icon-color">
               <i class="fab fa-instagram"></i>
             </a>
           </li>
+          </ul>
+      </div>
+    </mat-drawer> -->
+  <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
+
+      <a href="#">
+        <img class="logo" src="../../../assets/img/tracker-aceleradora.png">
+      </a>
+
+
+          <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
+        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="collapseNav">
+
+        <ul class="navbar navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link font-light mt-3" href="#comoFunciona"
+              ><p>como funciona?</p></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-light mt-3" href="#quemSomos"
+            ><p>quem somos</p></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-light mt-3" href="#"
+              ><p>contato</p></a>
+          </li>
         </ul>
+
+
+        <ul class="navbar-nav nav-flex-icons" id="client-area">
+          <li class="nav-item dropdown">
+            <a class="nav-link font-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+             data-toggle="dropdown" aria-expanded="true">
+              Área do cliente
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li>
+                <div class="col-12">
+                  <input class="border rounded border-color style-input-client" type="text" placeholder="login">
+                </div>
+              </li>
+              <li>
+                <div class="col-12">
+                  <input class="style-input-client border rounded border-color" type="text" placeholder="senha">
+                </div>
+                <span *ngIf="loginIncorreto == true" style="color: red; margin-left: 20px; font-size: 12px">Usuario ou senha incorretos</span>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="padding-left-button-client">
+                <button mat-raised-button class="buttom-client center border rounded border-color" (click)="entrar()"><p>Entrar</p></button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar navbar-nav" id="padding-rigth-0">
+          <li class="nav-item">
+            <a href="#submetaSeuProjeto" class="nav-link center border rounded border-color">
+              <span class="font-bold">submeta seu projeto</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.facebook.com/trackeraceleradora/" target="_blank"class="nav-link waves-effect icon-color">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item" id="icon-margin-right">
+            <a href="#" class="nav-link waves-effect icon-color">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          </ul>
       </div>
     </nav>
+

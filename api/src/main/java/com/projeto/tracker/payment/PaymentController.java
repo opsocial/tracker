@@ -1,6 +1,7 @@
 package com.projeto.tracker.payment;
 
 import com.google.gson.Gson;
+import com.projeto.tracker.model.ChargeResponse;
 import com.projeto.tracker.model.Payment;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
@@ -8,7 +9,9 @@ import com.stripe.model.Customer;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.CustomerCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
+import com.sun.corba.se.spi.ior.ObjectKey;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,9 +62,9 @@ public class PaymentController {
                 .addLineItem(SessionCreateParams.LineItem.builder().setQuantity(payment.getQuantity())
                         .setPriceData(
                                 SessionCreateParams.LineItem.PriceData.builder()
-                        .setCurrency(payment.getCurrency()).setUnitAmount(payment.getLongAmount())
+                        .setCurrency("brl").setUnitAmount(payment.getLongAmount())
                         .setProductData(SessionCreateParams.LineItem.PriceData.ProductData.builder()
-                                .setName(payment.getName()).build()).build()).build()).build();
+                                .setName("Tracker").build()).build()).build()).build();
 
         //criando sessao do stripe
         Session session = Session.create(params);
@@ -69,6 +72,30 @@ public class PaymentController {
 
         responseData.put("id", session.getId());
         return gson.toJson(responseData);
+    }
+
+    @PostMapping("/payment1")
+    /**
+     * Pagamento com stripe
+     *
+     * @throws StripeException
+     */
+    public ResponseEntity<?> paymentWithngx(@RequestBody Payment payment) throws StripeException {
+        System.out.println("Processing token" + payment);
+
+        try {
+            Map<String, Object> params = new HashMap<>();
+            params.put("amount", 9900L);
+            params.put("currency", "brl");
+            params.put("description", "pagamento teste");
+            params.put("source", payment.getToken());
+            Charge charge = Charge.create(params);
+            ChargeResponse response = new ChargeResponse();
+            response.setId(charge.getId());
+            return ResponseEntity.ok(response);
+        } catch (StripeException e) {
+            return ResponseEntity.badRequest().body(e.getStripeError().getMessage());
+        }
     }
 
 
@@ -89,11 +116,11 @@ public class PaymentController {
         }
     }
 
-    @PostMapping("/testCustomer")
-    public void createCustomer() {
+    @PostMapping("/createCustomer")
+    public void createCustomer(@RequestBody Customer user) {
         CustomerCreateParams params = CustomerCreateParams.builder().
-        setEmail("matheusmelhor3@gmail.com").
-        setName("teste").
+        setEmail(user.getEmail()).
+        setName(user.getName()).
         build();
 
         try {
@@ -124,6 +151,26 @@ public class PaymentController {
         chargeParams.put("customer", customerId);
         chargeParams.put("source", sourceCard);
 
+        return Charge.create(chargeParams);
+    }
+
+    public Charge chargeCreditCard(String token) throws Exception {
+        Map<String, Object> chargeParams = new HashMap<String, Object>();
+
+        chargeParams.put("amount", (int)(99 * 100)); //aqui passa para inteiro e multiplica por 100 o valor por que o stipe usa centavos nao reais
+        chargeParams.put("currency", Currencys.BRL);
+        chargeParams.put("source", token);
+
+        return Charge.create(chargeParams);
+    }
+
+    public Charge chargeCustomerCard(String customerId) throws Exception {
+        String sourceCard = Customer.retrieve(customerId).getDefaultSource();
+        Map<String, Object> chargeParams = new HashMap<String, Object>();
+        chargeParams.put("amount", 9900L);
+        chargeParams.put("currency", "brl");
+        chargeParams.put("customer", customerId);
+        chargeParams.put("source", sourceCard);
         return Charge.create(chargeParams);
     }
 }
