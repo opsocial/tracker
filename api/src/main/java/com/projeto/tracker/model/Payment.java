@@ -29,14 +29,12 @@ public class Payment {
         this.token = token;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-    private User usuario;
+    private Integer id_usuario;
 
     public Payment() {
     }
 
-    public Payment(Long idPagamento, String name, String currency, String success_url, String cancelUrl, BigDecimal unitAmount, Long longAmount, Long quantity, User usuario) {
+    public Payment(Long idPagamento, String name, String currency, String success_url, String cancelUrl, BigDecimal unitAmount, Long longAmount, Long quantity, Integer id_usuario) {
         this.idPagamento = idPagamento;
         this.name = name;
         this.currency = currency;
@@ -45,7 +43,7 @@ public class Payment {
         this.unitAmount = unitAmount;
         this.longAmount = longAmount;
         this.quantity = quantity;
-        this.usuario = usuario;
+        this.id_usuario = id_usuario;
     }
 
     public Long getIdPagamento() {
@@ -56,12 +54,12 @@ public class Payment {
         this.idPagamento = idPagamento;
     }
 
-    public User getUsuario() {
-        return usuario;
+    public Integer getUsuario() {
+        return id_usuario;
     }
 
-    public void setUsuario(User usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getName() {

@@ -22,9 +22,8 @@ public class Projeto implements Serializable {
 	@Column(name = "segmento")
 	private String segmento;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
-	private User idUsuario;
+	@Column(name = "id_usuario")
+	private Integer idUsuario;
 
 	@Column(name = "descricao")
 	private String descricao;
@@ -35,7 +34,7 @@ public class Projeto implements Serializable {
 	public Projeto() {
 	}
 
-	public Projeto(Long id_projeto, String nome, String segmento, User id_usuario, String descricao, String deckNomeDoArquivo) {
+	public Projeto(Long id_projeto, String nome, String segmento, Integer id_usuario, String descricao, String deckNomeDoArquivo) {
 		this.idProjeto = id_projeto;
 		this.nome = nome;
 		this.segmento = segmento;
@@ -68,11 +67,11 @@ public class Projeto implements Serializable {
 		this.segmento = segmento;
 	}
 
-	public User getId_usuario() {
+	public Integer getId_usuario() {
 		return idUsuario;
 	}
 
-	public void setId_usuario(User id_usuario) {
+	public void setId_usuario(Integer id_usuario) {
 		this.idUsuario = id_usuario;
 	}
 

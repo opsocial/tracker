@@ -10,7 +10,12 @@ public class MVCProperties implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS");
+        registry.addMapping("/**").
+                allowedOrigins("*").
+                allowedOrigins("https://checkout.stripe.com").
+                allowedOrigins("https://m.stripe.network").
+                allowedOrigins("http://localhost:4200").
+                allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS");
     }
 
 }

@@ -1,4 +1,4 @@
-package com.projeto.tracker.exceptions;
+package com.projeto.tracker.model.exceptions;
 
 import com.projeto.tracker.model.message.ResponseMessage;
 import org.springframework.http.HttpStatus;

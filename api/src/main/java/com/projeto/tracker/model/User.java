@@ -1,6 +1,7 @@
 package com.projeto.tracker.model;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -15,16 +16,13 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1311884942466303825L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long id_usuario;
 
     @Column(name = "nome", nullable = false)
     public String nome;
 
     @Column(name = "CPF", nullable = false)
     public String cpf;
-
-    @Column(name = "dataNasc")
-    public String dataNascimento;
 
     @Column(name = "telefone", nullable = false)
     public String telefone;
@@ -43,11 +41,10 @@ public class User implements Serializable {
 
     }
 
-    public User(Long id_usuario, String name, String cpf, String dataNascimento, String telefone, String email, String linkedin, Boolean ativo) {
-        this.idUsuario = id_usuario;
+    public User(Long id_usuario, String name, String cpf, String telefone, String email, String linkedin, Boolean ativo) {
+        this.id_usuario = id_usuario;
         this.nome = name;
         this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.email = email;
         this.linkedin = linkedin;
@@ -56,11 +53,11 @@ public class User implements Serializable {
 
 
     public Long getId_usuario() {
-        return idUsuario;
+        return id_usuario;
     }
 
     public void setId_usuario(Long id_usuario) {
-        this.idUsuario = id_usuario;
+        this.id_usuario = id_usuario;
     }
 
     public String getName() {
@@ -77,14 +74,6 @@ public class User implements Serializable {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public String getTelefone() {

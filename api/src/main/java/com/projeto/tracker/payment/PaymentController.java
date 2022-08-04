@@ -3,13 +3,14 @@ package com.projeto.tracker.payment;
 import com.google.gson.Gson;
 import com.projeto.tracker.model.ChargeResponse;
 import com.projeto.tracker.model.Payment;
+import com.projeto.tracker.repository.PaymentRepository;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
 import com.stripe.model.Customer;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.CustomerCreateParams;
 import com.stripe.param.checkout.SessionCreateParams;
-import com.sun.corba.se.spi.ior.ObjectKey;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,10 +28,11 @@ import java.util.Map;
 public class PaymentController {
 
     private StripeClient stripeClient;
-
+    private final PaymentRepository paymentRepository;
     @Autowired
-    PaymentController(StripeClient stripeClient) {
+    PaymentController(StripeClient stripeClient, PaymentRepository paymentRepository) {
         this.stripeClient = stripeClient;
+        this.paymentRepository = paymentRepository;
     }
 
     @PostMapping("/charge")
@@ -71,6 +73,8 @@ public class PaymentController {
         Map<String, String> responseData = new HashMap<>();
 
         responseData.put("id", session.getId());
+
+        paymentRepository.save(payment);
         return gson.toJson(responseData);
     }
 
