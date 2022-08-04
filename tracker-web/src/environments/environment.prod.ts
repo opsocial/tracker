@@ -1,6 +1,8 @@
 export const environment = {
   production: true,
-  url: 'https://warriors0014-w-spa.fs.locaweb.com.br/WNFS-0003/trackeracelerado1/dados/',
-  stripe: 'pk_live_51KdZOyI1l7hWQ6Pr6PUdu9MD5WeSmGIbAO3ISBB2hgMslHf8Xbiec2Z2250jALMHmoczinMqbpz8bjG5l74ILVbh00PcBmqWQ6'
+  url: 'http://localhost:8080/',
+  // url: 'https://api.trackeraceleradora.com.br/tracker-api/',
+  // stripe: 'pk_live_51KjjwUKbbqCn8DSTCGheuIyIM5KSsz6YyMdcIxnxIVQFfqfdkfDWEI6W5BNwO99b8bKJ1XL6RHI4tKqQJROkFKpt00Es2oiTpQ'
+  stripe: 'pk_test_51KjjwUKbbqCn8DSTAYBhsxFNmsp7pP7bFqZSuL8KTUPbvxrxyZWAb7J1KYtzhxnOYBSohpnyeIytYImOzZXt7IPz00iCWbmjgo'
 
 };

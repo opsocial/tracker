@@ -16,7 +16,10 @@ $max-wdt: 768px;
     font-size: $font-size-mobile !important;
     line-height: 46px !important;
     font-family: $font-family;
+  }
 
+  .margin-left {
+    margin-left: 45px;
   }
 
   #icon-top {
@@ -30,8 +33,12 @@ $max-wdt: 768px;
     padding-top: 33px !important;
   }
 
+  .img-slide-tim, .img-slide-banco-central  {
+    margin-left: 50px !important;
+  }
+
   .buttom-arquivo {
-    width: 200px !important;
+    width: 90% !important;
   }
 
   .float-left {
@@ -294,11 +301,37 @@ main {
   height: 81px;
 }
 
+.img-slide-kia {
+  width: 147px;
+  height: 74px;
+}
+
+.img-slide-itaipu {
+  width: 206px;
+  height: 62px;
+}
+
+.img-slide-nivea {
+  width: 83px;
+  height: 83px;
+}
+
+.img-slide-ikea {
+  width: 111px;
+  height: 62px;
+}
+
+.img-slide-audi {
+  width:120px;
+  height: 100%;
+}
+
 .card-contato {
   margin: 0 auto;
   max-width: 500px;
   text-align: center;
   margin-bottom: 10px;
+  box-shadow: none;
 }
 
 button {
@@ -314,4 +347,8 @@ button {
   color: #08b9cd;
   font-weight: 300;
   font-family: $font-family;
+}
+
+.mat-card-header {
+  display: block;
 }

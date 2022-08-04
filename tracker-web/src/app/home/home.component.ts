@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { PaymentModalComponent } from '../components/payment-modal/payment-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 import Typewriter from '../../../node_modules/t-writer.js/dist/t-writer.js'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmailService } from '../services/email.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FileServiceService } from '../services/file.service';
 declare var $: any;
 
 @Component({
@@ -13,7 +15,14 @@ declare var $: any;
 export class HomeComponent implements OnInit {
 
   formContato;
-  constructor(public dialog: MatDialog) { }
+  FileUpload: File | undefined;
+  progress: {porcentage: number} = {porcentage: 0};
+  currentFileUpload!: File;
+  selectedFiles!: FileList;
+  constructor(public dialog: MatDialog,
+    public emailService: EmailService,
+    private snackbar: MatSnackBar,
+    public fileSerice: FileServiceService) { }
 
   ngOnInit(): void {
     const target = document.querySelector(".tw");
@@ -27,16 +36,19 @@ export class HomeComponent implements OnInit {
     .rest(600)
     .start();
     this.slickConfig();
+    this.criaFormularioContato();
+  }
 
+  criaFormularioContato() {
     this.formContato = new FormGroup({
-      nome: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      empresa: new FormControl('', [Validators.required,]),
-      duvida: new FormControl('', [Validators.required])
+      nomeEmpresa: new FormControl('', [Validators.required,]),
+      mensagem: new FormControl('', [Validators.required])
     })
   }
 
-  slickConfig() {
+  slickConfig() { //config do scroll das marcas agora nao utilizado
     $(document).ready(function(){
       $('.customer-logos').slick({
         slidesToShow: 4,
@@ -62,12 +74,61 @@ export class HomeComponent implements OnInit {
 
   }
 
-  opnDialogPayment(): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = '590px';
-    const dialogRef = this.dialog.open(PaymentModalComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(
-      data => console.log("DATA: ", data)
-    )
+  detectar_mobile() {
+    if( navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)
+    ){
+       return true;
+     }
+    else {
+      return false;
+    }
   }
+    //snackbar config
+    opnSnackbar(msg: string, action: string): void {
+      this.snackbar.open(msg, action);
+    }
+
+
+  async enviarEmailContato() {
+    const data = this.formContato.getRawValue();
+
+    if(data.name.length > 0 && data.email.length > 0) {
+      data.email = data.email.split(" ").join("");
+      this.emailService.enviarEmailContato(data).subscribe(res => {
+        if(res != null) {
+          this.limparForm();
+          this.criaFormularioContato();
+          this.setTimeOuSnac('Email enviado com sucesso! obrigado pelo contato!');
+        } else {
+          this.setTimeOuSnac('Não foi possivel enviar o email!');
+        }
+        });
+    } else {
+      this.setTimeOuSnac('Por favor preencha todos os dados em vermelho!');
+    }
+  }
+
+  limparForm() {
+    this.formContato.reset();
+  }
+
+  selectFile(event) {
+  this.selectedFiles = event.target.files;
+  }
+
+  setTimeOuSnac(text: string) {
+  this.snackbar.open(text, '');
+    setTimeout(() => {
+      this.snackbar.dismiss();
+
+    }, 10000)
+  }
+
 }
+

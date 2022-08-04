@@ -1,5 +1,4 @@
   <!-- Navbar -->
-  <mat-drawer-container class="example-container"></mat-drawer-container>
     <!-- <mat-drawer #drawer >
       <div class="collapse navbar-collapse" id="collapseNav">
 
@@ -69,8 +68,6 @@
         <img class="logo" src="../../../assets/img/tracker-aceleradora.png">
       </a>
 
-
-          <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
         aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,8 +75,14 @@
 
 
       <div class="collapse navbar-collapse" id="collapseNav">
-
-        <ul class="navbar navbar-nav mr-auto">
+        <ul class="navbar navbar-nav mr-auto" [ngClass]="activateRoute.url != '/registro' ? 'display-none' : ''">
+          <li class="nav-item">
+            <a class="nav-link font-light mt-3" [routerLink]="'/'">
+              <p>Home</p>
+            </a>
+          </li>
+          </ul>
+        <ul class="navbar navbar-nav mr-auto" [ngClass]="activateRoute.url == '/registro' ? 'visibility-none' : '' ">
           <li class="nav-item">
             <a class="nav-link font-light mt-3" href="#comoFunciona"
               ><p>como funciona?</p></a>
@@ -89,7 +92,7 @@
             ><p>quem somos</p></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link font-light mt-3" href="#"
+            <a class="nav-link font-light mt-3" href="#contato"
               ><p>contato</p></a>
           </li>
         </ul>
@@ -122,17 +125,17 @@
         </ul>
         <ul class="navbar navbar-nav" id="padding-rigth-0">
           <li class="nav-item">
-            <a href="#submetaSeuProjeto" class="nav-link center border rounded border-color">
+            <a [routerLink]="'/registro'" class="nav-link center border rounded border-color">
               <span class="font-bold">submeta seu projeto</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://www.facebook.com/trackeraceleradora/" target="_blank"class="nav-link waves-effect icon-color">
+            <a href="https://www.facebook.com/trackeraceleradora/" target="_blank" class="nav-link waves-effect icon-color">
               <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li class="nav-item" id="icon-margin-right">
-            <a href="#" class="nav-link waves-effect icon-color">
+            <a href="https://www.instagram.com/trackeraceleradora" target="_blank" class="nav-link waves-effect icon-color">
               <i class="fab fa-instagram"></i>
             </a>
           </li>

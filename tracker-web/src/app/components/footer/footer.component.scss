@@ -5,16 +5,18 @@ $min-wdt: '375px';
 $max-wdt: '768px';
 
 @media(min-width: $min-wdt) and (max-width: $max-wdt) {
-  .logo-footer {
-    margin-left: 5px !important;
-    width: 180% !important;
-  }
+  // .logo-footer {
+  //   margin-left: 2px !important;
+  //   width: 180% !important;
+  //   height: 60px !important;
+  // }
 }
 
+
 .footer {
-  height: 200px;
+  height: 150px;
   background-image: linear-gradient(204deg, #33f29d 0%, #09bacd 100%);
-  margin-top: 90px;
+  width: 100%;
 }
 
 .font-footer {
@@ -28,12 +30,13 @@ $max-wdt: '768px';
 .logo-footer {
   margin-left: 50px;
   width: 70%;
+  height: 90%;
 }
-
 
 .icon-footer {
   color: #ffffff;
 }
+
 #linha-float-right {
   float: right;
 }

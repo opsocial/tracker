@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activateRoute: Router) { }
 
   formLogin;
   loginIncorreto = false;
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
       login: new FormControl('', Validators.required),
       senha: new FormControl('', Validators.required)
     });
+    console.log(this.activateRoute.url);
+
   }
 
   entrar() {

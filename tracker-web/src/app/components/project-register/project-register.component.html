@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
 
   <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
 
@@ -20,12 +20,7 @@
     <mat-step [stepControl]="form1" state="market">
       <form [formGroup]="form1">
         <ng-template matStepLabel class="centralizar">Dados pessoais</ng-template>
-        <!--<mat-form-field appearance="fill">
-          <mat-label>Em que consiste o produto e/ou serviço que será desenvolvido pela empresa?</mat-label>
-          <textarea matInput class="style-input" formControlName="dados"></textarea>
-        </mat-form-field> -->
-        <mat-grid-list cols="2" >
-         <!-- <textarea type="textarea" id="dado" class="style-input" placeholder="Em que consiste o produto e/ou serviço que será desenvolvido pela empresa?" formControlName="dados"></textarea>-->
+        <mat-grid-list cols="1">
          <mat-form-field appearance="fill" class="w-100">
            <input type="text" matInput id="dado" placeholder="Nome" formControlName="nome">
           </mat-form-field>
@@ -35,10 +30,6 @@
            <input type="text" matInput id="" mask="000.000.000-00" placeholder="CPF" formControlName="cpf">
           </mat-form-field>
         </mat-grid-list>
-         <!-- <mat-form-field appearance="fill">
-            <mat-label>Quem são os seus potenciais clientes e/ou usuários? Que necessidades do cliente e/ou usuário a empresa irá satisfazer?</mat-label>
-            <textarea matInput class="style-input" formControlName="potecial"></textarea>
-          </mat-form-field>-->
           <mat-grid-list cols="1">
             <mat-form-field appearance="fill" class="w-100">
               <input type="text" matInput mask="(00) 00000-0000" placeholder="Telefone/whatsapp" formControlName="telefone">
@@ -55,14 +46,7 @@
             </mat-form-field>
           </mat-grid-list>
 
-          <!--
-          <mat-form-field appearance="fill">
-            <mat-label>Quem são os seus principais concorrentes?</mat-label>
-            <textarea matInput class="style-input" formControlName="concorrentes"></textarea>
-          </mat-form-field>-->
-
       </form>
-      <!--<button mat-raised-button matStepperNext>Avançar</button>-->
     </mat-step>
     <mat-step [stepControl]="form2" state="capital">
       <form [formGroup]="form2">
@@ -95,55 +79,27 @@
             <label class="buttom-arquivo">
               <img src="../../../assets/img/upload-na-nuvem.png">
               carregar apresentação / deck em PDF
-
-              <input type="file" id="input-invisivel" (change)="selectFiles($event)" formControlName="deckNomeDoArquivo">
+              <input type="file" id="input-invisivel" (change)="onChange($event)" formControlName="deckNomeDoArquivo">
             </label>
-          </div>
-          <div class="card">
-            <div class="card-header">Lista de arquivos</div>
-            <ul
-              class="list-group list-group-flush"
-              *ngFor="let file of fileInfos | async"
-            >
-              <li class="list-group-item">
-                <a href="{{ file.url }}">{{ file.name }}</a>
-              </li>
-            </ul>
+            <div class="card" *ngIf="file">
+              <div class="card-header">Arquivo</div><!--TEM QUE FAZER FUNCIONAR PARA APAERCER O ARQUIVO AQ-->
+              <ul
+                class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <a href="{{file}}">{{ file.name }}</a>
+                </li>
+              </ul>
+            </div>
+            <button (click)="onUpload()" class="btn btn-success" [ngClass]="!file ? 'disabled' : ''">Enviar arquivo</button>
           </div>
         </mat-grid-list>
       </form>
-     <!--  <button mat-raised-button matStepperNext >Avançar</button>
-      <button mat-raised-button matStepperPrevious>Voltar</button>-->
     </mat-step>
 
     <mat-step [stepControl]="form3" state="pag">
       <form [formGroup]="form3">
         <ng-template matStepLabel class="centralizar">Pagamento da inscrição - R$99.00</ng-template>
-         <!-- <mat-grid-list cols="1">
-            <mat-form-field appearance="fill" class="w-100">
-              <input matInput type="nome" placeholder="seu nome" formControlName="nome">
-            </mat-form-field>
-          </mat-grid-list>
-
-          <mat-grid-list cols="1">
-            <mat-form-field appearance="fill" class="w-100">
-              <input matInput  placeholder="Numero do cartão" formControlName="number">
-            </mat-form-field>
-          </mat-grid-list>
-
-          <mat-grid-list cols="1">
-            <mat-form-field appearance="fill" class="w-100">
-              <input matInput  placeholder="CVC do cartão" formControlName="cvc">
-            </mat-form-field>
-          </mat-grid-list>
-
-          <mat-grid-list cols="1">
-            <mat-form-field appearance="fill" class="w-100">
-              <input matInput  placeholder="Data validade" formControlName="data">
-            </mat-form-field>
-          </mat-grid-list>-->
-
-          <button mat-raised-button (click)="inscrever()" class="w-100">Pagar</button>
+          <button mat-raised-button (click)="salvarUsuario()" class="w-100">Pagar</button>
           </form>
     </mat-step>
   </mat-stepper>

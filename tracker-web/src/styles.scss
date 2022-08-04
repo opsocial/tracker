@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 $main-color: #09bacd !important;
 $margin-text-cards: "47px";
 $font-family: "Montserrat";
@@ -15,7 +17,7 @@ $max-wdt: '768px';
 
 html {
   display: block;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 
 }
 
@@ -133,7 +135,7 @@ html {
   }
 
   .content-card {
-    font-size: 18px;
+    font-size: 25px;
     letter-spacing: -1px;
     line-height: 25px;
     color: #a6a6a6;
@@ -155,8 +157,8 @@ html {
     height: 40px;
     text-align: center !important;
   }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding: 0; }
 
 .mat-dialog-container {
   box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);

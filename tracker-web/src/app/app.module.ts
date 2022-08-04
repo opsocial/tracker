@@ -20,6 +20,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxStripeModule } from 'ngx-stripe';
 import { environment } from 'src/environments/environment';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,10 @@ import { environment } from 'src/environments/environment';
     NgxMaskModule.forRoot(),
     NgxStripeModule.forRoot(environment.stripe)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy,
+  }],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

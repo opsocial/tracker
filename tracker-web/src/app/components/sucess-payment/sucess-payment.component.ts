@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-sucess-payment',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SucessPaymentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private emailService: EmailService) { }
 
   ngOnInit(): void {
   }

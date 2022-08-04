@@ -1,12 +1,13 @@
   <!--Footer-->
-  <footer class="footer">
+  <footer class="footer navbar-fixed-bottom" style="margin-top: 25vh">
 
     <div class="row linha pt-4">
-      <div class="col-2">
-        <img class="logo-footer" src="../../../assets/img/tracker-aceleradora-2.png">
+      <div [ngClass]="detectar_mobile() ? 'col-4' : 'col-2'">
+        <img class="logo-footer" *ngIf="!detectar_mobile()" src="../../../assets/img/tracker-aceleradora-2.png">
+        <img *ngIf="detectar_mobile()" src="../../../assets/img/tracker-aceleradora-2 - Copia.png">
       </div>
 
-      <div class="col-6">
+      <div [ngClass]="detectar_mobile() ? 'col-4' : 'col-6'">
         <div class="row linha">
           <div class="col-12">
             <a href="#" class="font-footer">como funciona?</a>
@@ -23,17 +24,12 @@
       <div class="col-4">
         <div class="row linha" id="linha-float-right">
           <div class="col-1">
-            <a href="#">
-              <i class="fab fa-linkedin icon-footer"></i>
-            </a>
-          </div>
-          <div class="col-1">
-            <a href="#">
+            <a href="https://www.facebook.com/trackeraceleradora/" target="_blank">
               <i class="fab fa-facebook-f icon-footer"></i>
             </a>
           </div>
           <div class="col-1">
-            <a href="#">
+            <a href="https://www.instagram.com/trackeraceleradora" target="_blank">
               <i class="fab fa-instagram icon-footer"></i>
             </a>
           </div>

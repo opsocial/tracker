@@ -144,22 +144,24 @@
           transformação social através do empreendedorismo.
 
         </p>
-        <h4 style="text-align: center;" class="content-card mt-5">  Marcas que já trabalharam com a Tracker</h4>
-
-          <div class="row" style="align-items: center; margin-left: 23%">
+        <p style="text-align: center;" class="content-card mt-5">  Marcas que já trabalharam com a Tracker</p>
+        <div class="card" style="align-items: center; border: none;">
+          <div style="align-items: center;" [ngClass]="'!detectar_mobile()' ? 'row' : ''">
             <div><img class="img-slide-subway centralizar m-2" src="../../assets/img/subway-logo-Pesquisa-Google.png"></div>
             <div><img class="img-slide-tim centralizar m-2" src="../../assets/img/TIM-Logo.png"></div>
-          <div><img class="img-slide-piraque centralizar m-2" src="../../assets/img/Layer 1.png"></div>
-          <div><img class="img-slide-banco-central centralizar m-2" src="../../assets/img/Layer 2.png"></div>
-          <div><img class="img-slide-original centralizar m-2" src="../../assets/img/Logo_Oficial_Banco_Original_-_Verde.png"></div>
-        </div>
-        <div class="row" style="align-items: center; margin-left: 23%">
-          <div><img class="img-slide-subway centralizar m-2" src="../../assets/img/subway-logo-Pesquisa-Google.png"></div>
-          <div><img class="img-slide-tim centralizar m-2" src="../../assets/img/TIM-Logo.png"></div>
-        <div><img class="img-slide-piraque centralizar m-2" src="../../assets/img/Layer 1.png"></div>
         <div><img class="img-slide-banco-central centralizar m-2" src="../../assets/img/Layer 2.png"></div>
-        <div><img class="img-slide-original centralizar m-2" src="../../assets/img/Logo_Oficial_Banco_Original_-_Verde.png"></div>
+          <div><img class="img-slide-kia centralizar m-4" src="../../assets/img/kia-logo.png"></div>
+        <div [ngClass]="detectar_mobile() ? 'margin-left' : ''"><img class="img-slide-audi centralizar m-4" src="../../assets/img/Audi-logo-ED84DFE2E3-seeklogo.com.png"></div>
+        <div  [ngClass]="detectar_mobile() ? 'margin-left' : ''"><img class="img-slide-nivea centralizar m-4" src="../../assets/img/Nivea_logo.svg.png"></div>
+
+        </div>
+        <div class="row" style="align-items: center;" *ngIf="!detectar_mobile()">
+          <div><img class="img-slide-piraque centralizar m-2" src="../../assets/img/Layer 1.png"></div>
+          <div><img class="img-slide-original centralizar m-2" src="../../assets/img/Logo_Oficial_Banco_Original_-_Verde.png"></div>
+          <div><img class="img-slide-itaipu centralizar m-4" src="../../assets/img/itaipu-logo-1.png"></div>
+        <div><img class="img-slide-ikea centralizar m-4" src="../../assets/img/logo_ikea.png"></div>
       </div>
+    </div>
       </section>
       <!--Section: Quem somos-->
 
@@ -169,57 +171,62 @@
           <div class="col-12">
             <p class="font-title centralizar padding-top-title-submeta-proj">submeta seu projeto agora</p>
           </div>
-          <div class="centralizar">
-            <label class="buttom-arquivo m-2">
+        </div>
+        <div class="row">
+          <div class="centralizar col-6">
+            <label class="buttom-arquivo m-2 float-right">
               <button class="d-none" type="submit" [routerLink]="'/registro'"></button>
               <h3>submeter</h3>
             </label>
           </div>
-        </div>
-        <div class="centralizar">
-          <label class="buttom-arquivo">
-            <button class="d-none"></button>
-            <h3>baixar edital</h3>
+        <div class="centralizar col-6">
+          <label class="buttom-arquivo m-2 float-left">
+            <a href="https://files.fm/down.php?i=q2kywvzhk" style="color: #fff; text-decoration: none;">
+              <button class="d-none">  </button>
+              <h3>baixar edital</h3>
+            </a>
           </label>
         </div>
+      </div>
       </section>
       <!--Section: Submeta seu projeto-->
 
       <!--Section contato-->
-      <section id="contato" >
+      <section id="contato" class="mt-5">
         <form [formGroup]="formContato">
-        <mat-card class="card-contato">
-          <mat-card-title class="p-3 text-card-contato"><p>Entre em contato</p></mat-card-title>
+        <mat-card class="card-contato border-0">
           <mat-card-header>
-          <img mat-card-image class="pb-3" src="../../assets/img/tracker-aceleradora.png" style="width: 25%; height: 25%; margin: 0 auto;" alt="logo">
+          <!-- <img mat-card-image class="pb-3" src="../../assets/img/tracker-aceleradora.png" style="width: 25%; height: 25%; margin: 0 auto;" alt="logo">
+           --> <p class="font-title centralizar">Contato</p>
+
         </mat-card-header>
           <mat-card-content>
               <mat-grid-list cols="1">
-                <mat-form-field class="w-100 style-input">
-                    <input matInput type="text" formControlName="nome" placeholder="Seu nome">
+                <mat-form-field class="w-100">
+                    <input matInput type="text" formControlName="name" placeholder="Seu nome">
                 </mat-form-field>
               </mat-grid-list>
 
               <mat-grid-list cols="1">
-                <mat-form-field class="w-100 style-input">
+                <mat-form-field class="w-100">
                     <input matInput type="text" formControlName="email" placeholder="Email">
                 </mat-form-field>
               </mat-grid-list>
 
               <mat-grid-list cols="1">
-                <mat-form-field class="w-100 style-input">
-                    <input matInput type="text" formControlName="empresa" placeholder="nome da sua empresa">
+                <mat-form-field class="w-100">
+                    <input matInput type="text" formControlName="nomeEmpresa" placeholder="nome da sua empresa">
                 </mat-form-field>
               </mat-grid-list>
 
               <mat-grid-list cols="1">
-                <mat-form-field class="w-100 style-input">
-                    <textarea matInput type="textarea" formControlName="duvida" placeholder="Diga oque podemos te ajudar!"></textarea>
+                <mat-form-field class="w-100">
+                    <textarea matInput type="textarea" rows="5" formControlName="mensagem" placeholder="Como podemos te ajudar?"></textarea>
                 </mat-form-field>
               </mat-grid-list>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-raised-button>Enviar!</button>
+              <button mat-raised-button (click)="enviarEmailContato()">Enviar</button>
             </mat-card-actions>
           </mat-card>
         </form>

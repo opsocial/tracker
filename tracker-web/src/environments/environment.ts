@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://localhost:8080/',
-  stripe: 'pk_test_51KdZOyI1l7hWQ6PrHHYXCaPSbpTYD9PqbgKYikc1hwowFJWfuFbFHAvdxlnalWINneBbHNpYVxhDTVhJNEANUTHW00Ug8lh57p'
+  stripe: 'pk_test_51KjjwUKbbqCn8DSTAYBhsxFNmsp7pP7bFqZSuL8KTUPbvxrxyZWAb7J1KYtzhxnOYBSohpnyeIytYImOzZXt7IPz00iCWbmjgo'
 };
 
 /*
