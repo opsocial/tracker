@@ -123,7 +123,7 @@ export class HomeComponent implements OnInit {
   }
 
   setTimeOuSnac(text: string) {
-  this.snackbar.open(text, '');
+  this.snackbar.open(text, 'fechar');
     setTimeout(() => {
       this.snackbar.dismiss();
 
