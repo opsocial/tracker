@@ -102,8 +102,6 @@ export class HomeComponent implements OnInit {
       data.email = data.email.split(" ").join("");
       this.emailService.enviarEmailContato(data).subscribe(res => {
         if(res != null) {
-          this.limparForm();
-          this.criaFormularioContato();
           this.setTimeOuSnac('Email enviado com sucesso! obrigado pelo contato!');
         } else {
           this.setTimeOuSnac('Não foi possivel enviar o email!');
@@ -112,10 +110,14 @@ export class HomeComponent implements OnInit {
     } else {
       this.setTimeOuSnac('Por favor preencha todos os dados em vermelho!');
     }
+    this.limparForm();
+
   }
 
   limparForm() {
-    this.formContato.reset();
+    // this.formContato.reset();
+    this.formContato.markAsUntouched();
+    this.formContato.markAsPristineAndUntouched();
   }
 
   selectFile(event) {
